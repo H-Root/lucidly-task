@@ -64,15 +64,15 @@ const FirstStep = () => {
         >
           Welcome to Giki
         </Text>
-        <InputGroup width={"60%"} bg="brand.lightGray" mt={"6px"} mb={"14px"}>
+        <InputGroup maxWidth={"244px"} bg="brand.lightGray" mt={"6px"} mb={"14px"}>
           <Input placeholder="Name" />
           <InputRightElement position={"absolute"}>
             <PenIcon />
           </InputRightElement>
         </InputGroup>
         <Text
-          width={"75%"}
-          fontSize={12}
+          maxWidth={"330px"}
+          fontSize={13}
           fontWeight={"medium"}
           color={"brand.text"}
           fontFamily={"poppins"}
@@ -89,7 +89,7 @@ const FirstStep = () => {
         flexDirection={"column"}
         mt={"28px"}
       >
-        <Button variant={"solid"} width={"60%"} height={"40px"}>
+        <Button variant={"solid"} maxWidth={"244px"} height={"40px"}>
           Next
         </Button>
       </WrapItem>

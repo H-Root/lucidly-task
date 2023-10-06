@@ -17,10 +17,11 @@ const baseStyle = definePartsStyle({
   },
   body: {
     marginTop: "74px",
-    padding: "0",
+    padding: "0 10px",
   },
 });
 
 export const modalTheme = defineMultiStyleConfig({
+  // & variant
   baseStyle,
 });

@@ -9,21 +9,22 @@ import {
 type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  ModalBodyChild: React.ReactNode,
-  ModalFooterChild: React.ReactNode,
+  ModalBodyChild: React.ReactNode;
+  ModalFooterChild: React.ReactNode;
 };
 
-const Modal = ({ isOpen = false, onClose = () => { }, ModalBodyChild, ModalFooterChild }: ModalProps) => {
+const Modal = ({
+  isOpen = false,
+  onClose = () => { },
+  ModalBodyChild,
+  ModalFooterChild,
+}: ModalProps) => {
   return (
     <Mod isOpen={isOpen} onClose={onClose} isCentered={true}>
       <ModalOverlay />
-      <ModalContent>
-        <ModalBody>
-          {ModalBodyChild}
-        </ModalBody>
-        <ModalFooter>
-          {ModalFooterChild}
-        </ModalFooter>
+      <ModalContent maxWidth={612}>
+        <ModalBody>{ModalBodyChild}</ModalBody>
+        <ModalFooter>{ModalFooterChild}</ModalFooter>
       </ModalContent>
     </Mod>
   );

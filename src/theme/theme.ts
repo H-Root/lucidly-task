@@ -5,6 +5,7 @@ import { modalTheme } from "./modal";
 import { stepperTheme } from "./stepper";
 import { fonts } from "./vars/fonts";
 import { inputTheme } from "./input";
+import { breakpoints } from "./vars/breakpoints";
 
 const theme = extendTheme({
   components: {
@@ -18,6 +19,7 @@ const theme = extendTheme({
   },
   colors,
   fonts,
+  breakpoints
 });
 
 export default theme;

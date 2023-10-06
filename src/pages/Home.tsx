@@ -1,8 +1,9 @@
 import { Box, Button, Flex, Image, useDisclosure } from "@chakra-ui/react";
 import logo from "../assets/logo.svg";
 import Modal from "../components/Modal";
-import FirstStep from "../components/FirstStep";
 import Stepper from "../components/Stepper/Stepper";
+// import FirstStep from "../components/FirstStep";
+import SecondStep from "../components/SecondStep";
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,7 +31,7 @@ const Home = () => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        ModalBodyChild={<FirstStep />}
+        ModalBodyChild={<SecondStep />}
         ModalFooterChild={<Stepper />}
       />
     </>
