@@ -12,7 +12,7 @@ import PenIcon from "./PenIcon";
 
 const FirstStep = () => {
   return (
-    <Wrap direction={"column"} alignItems={"center"}>
+    <Wrap direction={"column"} alignItems={"center"} spacing={0}>
       <WrapItem
         width={"fit-content"}
         alignSelf={"center"}
@@ -53,6 +53,7 @@ const FirstStep = () => {
         alignSelf={"center"}
         alignItems={"center"}
         flexDirection={"column"}
+        mt={"30px"}
       >
         <Text
           width={"fit-content"}
@@ -88,7 +89,7 @@ const FirstStep = () => {
         flexDirection={"column"}
         mt={"28px"}
       >
-        <Button variant={"solid"} width={"60%"}>
+        <Button variant={"solid"} width={"60%"} height={"40px"}>
           Next
         </Button>
       </WrapItem>

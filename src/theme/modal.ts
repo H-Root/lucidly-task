@@ -10,7 +10,7 @@ const baseStyle = definePartsStyle({
   },
   dialog: {
     borderRadius: "md",
-    height: "85vh",
+    minHeight: "85vh",
   },
   footer: {
     marginBottom: 4,
