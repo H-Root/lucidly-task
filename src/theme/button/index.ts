@@ -1,27 +1,25 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { solid } from "./solid";
+import { link } from "./link";
 
 export const buttonTheme = defineStyleConfig({
-  variants: { solid: solid },
-  // 1. We can update the base styles
+  variants: { solid, link },
   baseStyle: {
-    fontFamily: "buttons",
-    fontWeight: "semibold"
+    fontFamily: "monst",
+    fontWeight: "semibold",
   },
-  // 2. We can add a new button size or extend existing
   sizes: {
     xs: {
-      fontSize: 10
+      fontSize: 10,
     },
     sm: {
       fontSize: 14,
-      width: "100%"
+      width: "100%",
     },
+    lg: {},
   },
-  // 6. We can overwrite defaultProps
   defaultProps: {
-    size: 'sm', // default is md
-    variant: 'solid', // default is solid
-    // colorScheme: 'orange', // default is gray
+    size: "sm",
+    variant: "solid",
   },
-})
+});

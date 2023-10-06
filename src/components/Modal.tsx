@@ -2,41 +2,35 @@ import {
   Modal as Mod,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalFooter,
   ModalBody,
-  Button,
-  UseDisclosureProps,
+  ModalHeader,
 } from "@chakra-ui/react";
 
-const Modal = ({
-  isOpen = false,
-  onOpen = () => { },
-  onClose = () => { },
-}: UseDisclosureProps) => {
+type ModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  ModalHeaderChild?: React.ReactNode,
+  ModalBodyChild: React.ReactNode,
+  ModalFooterChild: React.ReactNode,
+};
+
+const Modal = ({ isOpen = false, onClose = () => { }, ModalBodyChild, ModalFooterChild, ModalHeaderChild }: ModalProps) => {
   return (
-    <>
-      <Button onClick={onOpen}>Open Modal</Button>
-
-      <Mod isOpen={isOpen} onClose={onClose} isCentered={true}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-            optio pariatur molestiae dolores eligendi, rem veniam omnis
-            reiciendis quisquam accusantium?
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Mod>
-    </>
+    <Mod isOpen={isOpen} onClose={onClose} isCentered={true}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>
+          {ModalHeaderChild && ModalHeaderChild}
+        </ModalHeader>
+        <ModalBody>
+          {ModalBodyChild}
+        </ModalBody>
+        <ModalFooter>
+          {ModalFooterChild}
+        </ModalFooter>
+      </ModalContent>
+    </Mod>
   );
 };
 

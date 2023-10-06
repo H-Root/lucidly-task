@@ -10,5 +10,5 @@ export const link = defineStyle((_props: StyleFunctionProps) => ({
   _disabled: {
     bg: "brand.disabled",
   },
-  colorScheme: "black"
+  colorScheme: "black",
 }));

@@ -1,19 +1,23 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// theme.ts (tsx file with usage of StyleFunctions, see 4.)
-import { extendTheme } from '@chakra-ui/react'
-import { buttonTheme } from './button'
-import { colors } from './colors'
+import { extendTheme } from "@chakra-ui/react";
+import { buttonTheme } from "./button";
+import { colors } from "./vars/colors";
+import { modalTheme } from "./modal";
+import { stepperTheme } from "./stepper";
+import { fonts } from "./vars/fonts";
+import { inputTheme } from "./input";
 
 const theme = extendTheme({
-  fonts: {
-    heading: `'Poppins', sans-serif`,
-    buttons: `'Montserrat', sans-serif`,
-    input: `'Roboto', sans-serif`
-  },
   components: {
-    Button: buttonTheme
+    Button: buttonTheme,
+    Modal: modalTheme,
+    Stepper: stepperTheme,
+    Avatar: {
+      backgroundColor: "brand.avatarBg",
+    },
+    Input: inputTheme,
   },
   colors,
-})
+  fonts,
+});
 
-export default theme
+export default theme;
