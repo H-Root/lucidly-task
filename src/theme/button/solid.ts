@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { StyleFunctionProps, defineStyle } from "@chakra-ui/react";
 
-export const solid = defineStyle((props: StyleFunctionProps) => ({
+export const solid = defineStyle((_props: StyleFunctionProps) => ({
   bg: "brand.orange",
   color: "white",
   borderRadius: 8,
