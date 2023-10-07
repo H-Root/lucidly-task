@@ -4,7 +4,7 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);
 
-const baseStyle = definePartsStyle({
+const stepperModal = definePartsStyle({
   overlay: {
     bg: "brand.darkGray",
   },
@@ -26,5 +26,8 @@ const baseStyle = definePartsStyle({
 
 export const modalTheme = defineMultiStyleConfig({
   // & variant
-  baseStyle,
+  // baseStyle,
+  variants: {
+    stepperModal
+  }
 });

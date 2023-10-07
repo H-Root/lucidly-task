@@ -20,7 +20,7 @@ const Modal = ({
   ModalFooterChild,
 }: ModalProps) => {
   return (
-    <Mod isOpen={isOpen} onClose={onClose} isCentered={true}>
+    <Mod isOpen={isOpen} onClose={onClose} isCentered={true} variant={"stepperModal"}>
       <ModalOverlay />
       <ModalContent maxWidth={612}>
         <ModalBody>{ModalBodyChild}</ModalBody>

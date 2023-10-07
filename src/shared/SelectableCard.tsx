@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { BsCheckLg } from "react-icons/bs";
 
 type DefaultProps = {
@@ -31,8 +30,8 @@ const SelectableCard = ({
   return (
     <div
       className={`relative aspect-square overflow-hidden rounded-lg border-[1px] ${extras} ${selected
-          ? "border-[--chakra-colors-brand-orange]"
-          : "border-transparent"
+        ? "border-[--chakra-colors-brand-orange]"
+        : "border-transparent"
         }`}
       onClick={onClick}
     >
@@ -44,7 +43,7 @@ const SelectableCard = ({
       {children}
       {withLabel && (
         <div
-          className="absolute bottom-[12px] left-[14px] font-semibold text-white"
+          className="absolute bottom-[12px] left-[14px] font-semibold text-white text-sm break-all"
           style={{ fontFamily: "var(--chakra-fonts-monst)" }}
         >
           {label}
