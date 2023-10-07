@@ -4,19 +4,20 @@ import Avatar from "../shared/Avatar";
 import SubText from "../shared/SubText";
 import Heading from "../shared/Heading";
 import Desc from "../shared/Desc";
-import { currentStep, userData } from "../store/Store";
-import { useRecoilState } from "recoil";
+import { currentStep, userData, userProfile } from "../store/Store";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 const FirstStep = () => {
   const [, setCur] = useRecoilState(currentStep);
   const [userDataAtom, setUserDataAtom] = useRecoilState(userData);
+  const filler = useRecoilValue(userProfile);
 
   return (
     <div className="flex flex-1 flex-col items-center justify-between">
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center">
-          <Avatar>A</Avatar>
-          <SubText>alice@wonderland.space</SubText>
+          <Avatar>{filler.dummyProfileImage}</Avatar>
+          <SubText>{filler.email}</SubText>
         </div>
         <div className="mt-[30px] flex flex-col items-center">
           <Heading special={true}>Welcome to Giki</Heading>
@@ -32,9 +33,10 @@ const FirstStep = () => {
               onChange={(e) =>
                 setUserDataAtom((val) => ({
                   ...val,
-                  userName: e.target.value
+                  userName: e.target.value,
                 }))
               }
+              maxLength={15}
             />
             <InputRightElement position={"absolute"}>
               <PenIcon />
