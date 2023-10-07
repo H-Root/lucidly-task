@@ -4,7 +4,7 @@ import { StyleFunctionProps, defineStyle } from "@chakra-ui/react";
 export const link = defineStyle((_props: StyleFunctionProps) => ({
   bg: "brand.transparent",
   color: "brand.text",
-  padding: 3,
+  padding: 0,
   fontSize: 10,
   fontWeight: 500,
   _disabled: {

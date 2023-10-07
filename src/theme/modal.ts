@@ -18,6 +18,9 @@ const baseStyle = definePartsStyle({
   body: {
     marginTop: "74px",
     padding: "0 10px",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column"
   },
 });
 
