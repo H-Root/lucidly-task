@@ -35,11 +35,11 @@ const SecondStep = () => {
             placeholder="Region"
             bg="brand.lightGray"
             color={"brand.disabled"}
-            value={userDataAtom.nationality}
+            value={userDataAtom.region}
             onChange={(e) =>
               setUserDataAtom((curr) => ({
                 ...curr,
-                nationality: e.target.value,
+                region: e.target.value,
               }))
             }
           >
@@ -54,7 +54,7 @@ const SecondStep = () => {
             height={"40px"}
             onClick={() => setCur(2)}
             isDisabled={
-              userDataAtom.nationality.length === 0 ||
+              userDataAtom.region.length === 0 ||
               userDataAtom.lang.length === 0
             }
           >

@@ -1,5 +1,10 @@
 import { atom, selector } from "recoil";
 
+export const modalState = atom<boolean>({
+  key: "modalState",
+  default: false,
+})
+
 export const currentStep = atom<number>({
   key: "currentStep",
   default: 0,
@@ -13,15 +18,17 @@ export const highestStep = atom<number>({
 export const userData = atom<{
   userName: string;
   lang: string;
-  nationality: string;
+  region: string;
   interests: string[];
+  submitted: boolean;
 }>({
   key: "userData",
   default: {
     userName: "",
     lang: "",
-    nationality: "",
+    region: "",
     interests: [],
+    submitted: false,
   },
 });
 
@@ -34,7 +41,7 @@ export const userMsg = selector({
       return `Pick ${3 - interests.length} more`;
     }
 
-    return `Done`;
+    return `Submit`;
   },
 });
 

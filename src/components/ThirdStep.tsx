@@ -1,16 +1,7 @@
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import Heading from "../shared/Heading";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { currentStep, userData, userMsg } from "../store/Store";
+import { currentStep, modalState, userData, userMsg } from "../store/Store";
 import img from "../assets/img1.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.png";
@@ -61,26 +52,13 @@ const ThirdStep = () => {
   const [, setCur] = useRecoilState(currentStep);
   const [userDataAtom, setUserDataAtom] = useRecoilState(userData);
   const msg = useRecoilValue(userMsg);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [, setModalStateAtom] = useRecoilState(modalState);
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalBody>lkajdlkasdlk</ModalBody>
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
       <div className="flex flex-1 flex-col items-center justify-center">
         <Heading extras="w-full w-full min-[425px]:w-[400px]">
-          Tell us what you’re interested in
+          Tell us what you're interested in
         </Heading>
         <div className="mt-[19px] flex w-full flex-1 flex-col justify-between">
           <div className="mx-[10px] flex flex-1 items-center justify-center">
@@ -129,7 +107,13 @@ const ThirdStep = () => {
               variant={"solid"}
               height={"40px"}
               isDisabled={userDataAtom.interests.length < 3}
-              onClick={onOpen}
+              onClick={() => {
+                setUserDataAtom((prev) => ({
+                  ...prev,
+                  submitted: true,
+                }));
+                setModalStateAtom(false);
+              }}
             >
               {msg}
             </Button>
