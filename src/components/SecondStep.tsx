@@ -1,7 +1,12 @@
 import { Button, Select } from "@chakra-ui/react";
 import Heading from "../shared/Heading";
+import { currentStep, userData } from "../store/Store";
+import { useRecoilState } from "recoil";
 
 const SecondStep = () => {
+  const [, setCur] = useRecoilState(currentStep);
+  const [userDataAtom, setUserDataAtom] = useRecoilState(userData);
+
   return (
     <div className="flex flex-1 flex-col items-center justify-center">
       <Heading extras="w-full min-[525px]:w-[500px]">
@@ -10,29 +15,54 @@ const SecondStep = () => {
       <div className="mt-[77px] flex w-full flex-1 flex-col justify-between">
         <div className="mx-auto flex w-full flex-col gap-3 self-stretch min-[365px]:w-[360px]">
           <Select
-            placeholder="English (US)"
+            placeholder="Language"
             bg="brand.lightGray"
             color={"brand.disabled"}
+            value={userDataAtom.lang}
+            onChange={(e) =>
+              setUserDataAtom((curr) => ({
+                ...curr,
+                lang: e.target.value,
+              }))
+            }
           >
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="en">English (US)</option>
+            <option value="ar">Arabic (AR)</option>
+            <option value="gr">German (GR)</option>
+            <option value="du">Dutch (DU)</option>
           </Select>
           <Select
-            placeholder="Italy (Italia)"
+            placeholder="Region"
             bg="brand.lightGray"
             color={"brand.disabled"}
+            value={userDataAtom.nationality}
+            onChange={(e) =>
+              setUserDataAtom((curr) => ({
+                ...curr,
+                nationality: e.target.value,
+              }))
+            }
           >
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="sy">Syria</option>
+            <option value="it">Italia</option>
+            <option value="uae">UAE</option>
           </Select>
         </div>
         <div className="mt-10 flex w-full flex-col items-center gap-3 self-center min-[250px]:w-[244px]">
-          <Button variant={"solid"} height={"40px"}>
+          <Button
+            variant={"solid"}
+            height={"40px"}
+            onClick={() => setCur(2)}
+            isDisabled={
+              userDataAtom.nationality.length === 0 ||
+              userDataAtom.lang.length === 0
+            }
+          >
             Next
           </Button>
-          <Button variant={"link"}>Back</Button>
+          <Button variant={"link"} onClick={() => setCur(0)}>
+            Back
+          </Button>
         </div>
       </div>
     </div>

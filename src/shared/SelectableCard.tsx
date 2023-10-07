@@ -5,6 +5,7 @@ type DefaultProps = {
   children: React.ReactNode;
   extras?: string;
   selected?: boolean;
+  onClick: () => void;
 };
 
 type conditionalLabel =
@@ -25,11 +26,15 @@ const SelectableCard = ({
   selected = false,
   label,
   withLabel = false,
+  onClick,
 }: Props) => {
   return (
     <div
-      className={`relative aspect-square overflow-hidden rounded-lg ${extras} ${selected && "border-[1px] border-[--chakra-colors-brand-orange]"
+      className={`relative aspect-square overflow-hidden rounded-lg border-[1px] ${extras} ${selected
+          ? "border-[--chakra-colors-brand-orange]"
+          : "border-transparent"
         }`}
+      onClick={onClick}
     >
       {selected && (
         <div className="absolute right-[10px] top-[13px] flex items-center justify-center rounded-full bg-[--chakra-colors-brand-blue] text-[10px]">
@@ -39,7 +44,7 @@ const SelectableCard = ({
       {children}
       {withLabel && (
         <div
-          className="absolute bottom-[12px] left-[14px] text-white font-semibold"
+          className="absolute bottom-[12px] left-[14px] font-semibold text-white"
           style={{ fontFamily: "var(--chakra-fonts-monst)" }}
         >
           {label}

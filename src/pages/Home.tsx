@@ -2,12 +2,30 @@ import { Button, Image, useDisclosure } from "@chakra-ui/react";
 import logo from "../assets/logo.svg";
 import Modal from "../components/Modal";
 import Stepper from "../components/Stepper/Stepper";
-// import FirstStep from "../components/FirstStep";
-// import SecondStep from "../components/SecondStep";
+import FirstStep from "../components/FirstStep";
+import SecondStep from "../components/SecondStep";
 import ThirdStep from "../components/ThirdStep";
+import { useRecoilState } from "recoil";
+import { currentStep, highestStep } from "../store/Store";
+import { useEffect } from "react";
+
+const steps = [
+  <FirstStep />,
+  <SecondStep />,
+  <ThirdStep />
+]
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [, setHighestStepAtom] = useRecoilState(highestStep);
+  const [currentStepAtom] = useRecoilState(currentStep);
+
+
+  useEffect(() => {
+    setHighestStepAtom(3);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
@@ -22,7 +40,7 @@ const Home = () => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        ModalBodyChild={<ThirdStep />}
+        ModalBodyChild={steps[currentStepAtom]}
         ModalFooterChild={<Stepper />}
       />
     </>

@@ -4,9 +4,10 @@ import {
   StepSeparator,
   StepStatus,
   Stepper as Steppa,
-  useSteps,
 } from "@chakra-ui/react";
 import StepperDot from "./StepperDot";
+import { currentStep } from "../../store/Store";
+import { useRecoilState } from "recoil";
 
 const steps = [
   { title: "First", description: "Contact Info" },
@@ -15,13 +16,10 @@ const steps = [
 ];
 
 const Stepper = () => {
-  const { activeStep } = useSteps({
-    index: 0,
-    count: steps.length,
-  });
+  const [currentStepAtom] = useRecoilState(currentStep);
 
   return (
-    <Steppa index={activeStep}>
+    <Steppa index={currentStepAtom}>
       {steps.map((_, index) => (
         <Step key={index}>
           <StepIndicator>
