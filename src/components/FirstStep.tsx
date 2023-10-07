@@ -3,10 +3,12 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  Text,
 } from "@chakra-ui/react";
 import PenIcon from "./PenIcon";
 import Avatar from "../shared/Avatar";
+import SubText from "../shared/SubText";
+import Heading from "../shared/Heading";
+import Desc from "../shared/Desc";
 
 const FirstStep = () => {
   return (
@@ -16,26 +18,14 @@ const FirstStep = () => {
           <Avatar>
             A
           </Avatar>
-          <Text
-            color={"brand.disabled"}
-            mt={11}
-            fontSize={14}
-            fontFamily={"poppins"}
-            style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
-          >
+          <SubText>
             alice@wonderland.space
-          </Text>
+          </SubText>
         </div>
         <div className="flex flex-col items-center mt-[30px]">
-          <Text
-            width={"fit-content"}
-            fontSize={28}
-            fontWeight={"bold"}
-            color={"brand.blue"}
-            fontFamily={"poppins"}
-          >
+          <Heading special={true}>
             Welcome to Giki
-          </Text>
+          </Heading>
           <InputGroup
             maxWidth={"244px"}
             bg="brand.lightGray"
@@ -47,27 +37,18 @@ const FirstStep = () => {
               <PenIcon />
             </InputRightElement>
           </InputGroup>
-          <Text
-            maxWidth={"330px"}
-            fontSize={13}
-            fontWeight={"medium"}
-            color={"brand.text"}
-            fontFamily={"poppins"}
-            textAlign={"center"}
-          >
+          <Desc className="max-w-[330px] text-center">
             Your answers to the next few questions will help us find the right
             communities for you
-          </Text>
+          </Desc>
         </div>
       </div>
-
       <div className="w-full flex flex-col items-center gap-3">
         <Button variant={"solid"} maxWidth={"244px"} height={"40px"}>
           Next
         </Button>
         <Button variant={"link"} className="invisible">Back</Button>
       </div>
-
     </div>
   );
 };

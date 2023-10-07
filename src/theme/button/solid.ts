@@ -14,6 +14,12 @@ export const solid = defineStyle((_props: StyleFunctionProps) => ({
   },
   _disabled: {
     bg: "brand.disabled",
+    _hover: {
+      bg: "brand.disabled",
+    },
+    _active: {
+      bg: "brand.disabled",
+    },
   },
   dropShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 }));

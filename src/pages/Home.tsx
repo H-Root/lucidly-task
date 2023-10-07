@@ -3,7 +3,8 @@ import logo from "../assets/logo.svg";
 import Modal from "../components/Modal";
 import Stepper from "../components/Stepper/Stepper";
 // import FirstStep from "../components/FirstStep";
-import SecondStep from "../components/SecondStep";
+// import SecondStep from "../components/SecondStep";
+import ThirdStep from "../components/ThirdStep";
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -21,7 +22,7 @@ const Home = () => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        ModalBodyChild={<SecondStep />}
+        ModalBodyChild={<ThirdStep />}
         ModalFooterChild={<Stepper />}
       />
     </>
