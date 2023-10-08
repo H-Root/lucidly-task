@@ -1,5 +1,5 @@
 import {
-  Modal as Mod,
+  Modal as ModalChakra,
   ModalOverlay,
   ModalContent,
   ModalFooter,
@@ -20,13 +20,20 @@ const Modal = ({
   ModalFooterChild,
 }: ModalProps) => {
   return (
-    <Mod isOpen={isOpen} onClose={onClose} isCentered={true} variant={"stepperModal"}>
+    <ModalChakra
+      isOpen={isOpen}
+      onClose={onClose}
+      isCentered={true}
+      variant={"stepperModal"}
+      closeOnEsc={false}
+      closeOnOverlayClick={false}
+    >
       <ModalOverlay />
       <ModalContent maxWidth={612}>
         <ModalBody>{ModalBodyChild}</ModalBody>
         <ModalFooter>{ModalFooterChild}</ModalFooter>
       </ModalContent>
-    </Mod>
+    </ModalChakra>
   );
 };
 
