@@ -2,7 +2,6 @@ import { extendTheme } from "@chakra-ui/react";
 import { buttonTheme } from "./button";
 import { colors } from "./vars/colors";
 import { modalTheme } from "./modal";
-import { stepperTheme } from "./stepper";
 import { fonts } from "./vars/fonts";
 import { inputTheme } from "./input";
 import { breakpoints } from "./vars/breakpoints";
@@ -11,7 +10,6 @@ const theme = extendTheme({
   components: {
     Button: buttonTheme,
     Modal: modalTheme,
-    Stepper: stepperTheme,
     Avatar: {
       backgroundColor: "brand.avatarBg",
     },

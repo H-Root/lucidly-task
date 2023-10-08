@@ -14,12 +14,18 @@ import {
 
 import logo from "../../assets/logo.svg";
 
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import FirstStep from "./steps/FirstStep";
 import SecondStep from "./steps/SecondStep";
 import ThirdStep from "./steps/ThirdStep";
-import { currentStep, highestStep, modalState, userData } from "../../store/Store";
+import {
+  currentStep,
+  highestStep,
+  modalState,
+  userData,
+  userProfile,
+} from "../../store/Store";
 import Modal from "../../components/Modal";
 import Stepper from "../../components/Stepper/Stepper";
 
@@ -32,6 +38,7 @@ const Home = () => {
   const [userDataAtom, setUserDataAtom] = useRecoilState(userData);
   const [highestStepAtom, setHighestStepAtom] = useRecoilState(highestStep);
   const [currentStepAtom, setCurrentStepAtom] = useRecoilState(currentStep);
+  const filler = useRecoilValue(userProfile);
 
   useEffect(() => {
     setHighestStepAtom(steps.length);
@@ -39,9 +46,9 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log(modalStateAtom);
     if (!modalStateAtom && userDataAtom.submitted) {
       onOpen();
+      console.log({ ...userDataAtom, ...filler });
       setUserDataAtom({
         interests: [],
         lang: "",
@@ -72,7 +79,12 @@ const Home = () => {
         isOpen={modalStateAtom}
         onClose={() => setModalStateAtom(false)}
         ModalBodyChild={steps[currentStepAtom]}
-        ModalFooterChild={<Stepper currentStep={currentStepAtom} highestStep={highestStepAtom} />}
+        ModalFooterChild={
+          <Stepper
+            currentStep={currentStepAtom}
+            highestStep={highestStepAtom}
+          />
+        }
       />
       <ModalChakra isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
