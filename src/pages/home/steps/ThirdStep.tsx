@@ -1,17 +1,21 @@
 import { Button } from "@chakra-ui/react";
-import Heading from "../shared/Heading";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { currentStep, modalState, userData, userMsg } from "../store/Store";
-import img from "../assets/img1.png";
-import img2 from "../assets/img2.png";
-import img3 from "../assets/img3.png";
-import img4 from "../assets/img4.png";
-import img5 from "../assets/img5.png";
-import img6 from "../assets/img6.png";
-import img7 from "../assets/img7.png";
-import img8 from "../assets/img8.png";
-import SelectableCard from "../shared/SelectableCard";
-import GridDisplay from "./GridDisplay";
+
+import img from "../../../assets/img1.png";
+import img2 from "../../../assets/img2.png";
+import img3 from "../../../assets/img3.png";
+import img4 from "../../../assets/img4.png";
+import img5 from "../../../assets/img5.png";
+import img6 from "../../../assets/img6.png";
+import img7 from "../../../assets/img7.png";
+import img8 from "../../../assets/img8.png";
+
+import { currentStep, modalState, userData, userMsg } from "../../../store/Store";
+
+import GridDisplay from "../../../components/GridDisplay";
+
+import SelectableCard from "../../../shared/SelectableCard";
+import Heading from "../../../shared/Heading";
 
 const data = [
   {

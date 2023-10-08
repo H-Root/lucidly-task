@@ -1,11 +1,11 @@
 import { Button, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
-import PenIcon from "./PenIcon";
-import Avatar from "../shared/Avatar";
-import SubText from "../shared/SubText";
-import Heading from "../shared/Heading";
-import Desc from "../shared/Desc";
-import { currentStep, userData, userProfile } from "../store/Store";
 import { useRecoilState, useRecoilValue } from "recoil";
+import { currentStep, userData, userProfile } from "../../../store/Store";
+import Avatar from "../../../shared/Avatar";
+import SubText from "../../../shared/SubText";
+import Heading from "../../../shared/Heading";
+import PenIcon from "../../../shared/PenIcon";
+import Desc from "../../../shared/Desc";
 
 const FirstStep = () => {
   const [, setCur] = useRecoilState(currentStep);

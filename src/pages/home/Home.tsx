@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import {
   Button,
   Image,
@@ -7,17 +9,19 @@ import {
   ModalHeader,
   ModalOverlay,
   useDisclosure,
-  Modal as Mod,
+  Modal as ModalChakra,
 } from "@chakra-ui/react";
-import logo from "../assets/logo.svg";
-import Modal from "../components/Modal";
-import Stepper from "../components/Stepper/Stepper";
-import FirstStep from "../components/FirstStep";
-import SecondStep from "../components/SecondStep";
-import ThirdStep from "../components/ThirdStep";
+
+import logo from "../../assets/logo.svg";
+
 import { useRecoilState } from "recoil";
-import { currentStep, highestStep, modalState, userData } from "../store/Store";
-import { useEffect } from "react";
+
+import FirstStep from "./steps/FirstStep";
+import SecondStep from "./steps/SecondStep";
+import ThirdStep from "./steps/ThirdStep";
+import { currentStep, highestStep, modalState, userData } from "../../store/Store";
+import Modal from "../../components/Modal";
+import Stepper from "../../components/Stepper/Stepper";
 
 const steps = [<FirstStep />, <SecondStep />, <ThirdStep />];
 
@@ -26,11 +30,11 @@ const Home = () => {
 
   const [modalStateAtom, setModalStateAtom] = useRecoilState(modalState);
   const [userDataAtom, setUserDataAtom] = useRecoilState(userData);
-  const [, setHighestStepAtom] = useRecoilState(highestStep);
+  const [highestStepAtom, setHighestStepAtom] = useRecoilState(highestStep);
   const [currentStepAtom, setCurrentStepAtom] = useRecoilState(currentStep);
 
   useEffect(() => {
-    setHighestStepAtom(3);
+    setHighestStepAtom(steps.length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -68,9 +72,9 @@ const Home = () => {
         isOpen={modalStateAtom}
         onClose={() => setModalStateAtom(false)}
         ModalBodyChild={steps[currentStepAtom]}
-        ModalFooterChild={<Stepper />}
+        ModalFooterChild={<Stepper currentStep={currentStepAtom} highestStep={highestStepAtom} />}
       />
-      <Mod isOpen={isOpen} onClose={onClose} isCentered>
+      <ModalChakra isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Submitted Successfully</ModalHeader>
@@ -81,7 +85,7 @@ const Home = () => {
             </Button>
           </ModalFooter>
         </ModalContent>
-      </Mod>
+      </ModalChakra>
     </>
   );
 };

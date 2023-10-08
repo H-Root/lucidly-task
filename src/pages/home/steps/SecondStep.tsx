@@ -1,7 +1,7 @@
 import { Button, Select } from "@chakra-ui/react";
-import Heading from "../shared/Heading";
-import { currentStep, userData } from "../store/Store";
 import { useRecoilState } from "recoil";
+import { currentStep, userData } from "../../../store/Store";
+import Heading from "../../../shared/Heading";
 
 const SecondStep = () => {
   const [, setCur] = useRecoilState(currentStep);
